@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+GET     /favicon.ico                            staticFile:/public/favicon.ico
+GET     /public/                                staticDir:public
+
+GET     /                                       Home.index
+
+GET     /{controller}                           {controller}.index
+GET     /{controller}/new/{id}                  {controller}.novus
+GET     /{controller}/new                       {controller}.novus
+POST    /{controller}                           {controller}.save 
+GET     /{controller}/view/{id}                 {controller}.view
+*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}/{id}             {controller}.{action}

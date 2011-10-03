@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hacker Meetups #{get 'title' /}</title>
+    #{greenscript.css "main forms plugins", media:"screen", output:true /}
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    #{greenscript.js "plugins/dialog plugins/formTip plugins/textarea plugins/datePicker main", output:true /}
+    #{get 'moreScripts' /}
+  </head>
+  <body#{get 'body' /}>
+    <div id="header">
+      <div id="menu">
+        <span id="logo"><a href="@{Home.index()}">HackerMeetups</a></span>
+        #{ if session.contains("uid") }
+          <a href="@{Sessions.logout()}">logout</a>
+        #{/if}
+        #{else}
+          <a href="@{Sessions.novus()}">login</a>
+          <a href="@{Users.novus()}">register</a>
+        #{/else}
+      </div>
+    </div>
+    #{if error }<div id="error">${error}</div> #{/if}
+    
+    <div id="site">#{doLayout /}</div>
+    
+    <img src="@{'/public/images/leaf.png'}" id="leaf" />
+    <div id="footer">
+      <div>
+        <a href="@{Home.about()}">about</a>
+        <a href="https://github.com/mongodb/mongo-learn-meetups">fork it</a>
+        <a href="http://www.10gen.com/">created by 10gen</a>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+#{set body: ' class=narrow' /}
+
+<h3>Please enter your name and password</h3>
+<form method="post" action="/sessions">
+  #{form_field id:'name', type:'text' /}
+  #{form_field id:'password', type:'password' /}
+  <div class="buttons">
+    <input type="submit" value="login" class="button" />
+    <div class="links">
+      <a href="@{Users.novus()}">register &raquo;</a>
+    </div>
+  </div>
+</form>

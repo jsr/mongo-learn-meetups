@@ -1,0 +1,8 @@
+#{set validation:play.mvc.Scope.RenderArgs.current().get("validation") /}
+#{set name: _prefix ? _prefix + '.' + _id : _id /}
+<div class="item textarea">
+  <label for="${_id}">${_id}</label>
+  <textarea name="${name}" id="${_id}" #{if _maxlength}maxlength="${_maxlength}"#{/if}>#{if _value}${_value}#{/if}</textarea>
+  #{if _tip }<span class="tip">${_tip}</span> #{/if}
+  #{if validation && validation.has(name) } <span class="error">${validation.get(name)}</span>#{/if}
+</div>

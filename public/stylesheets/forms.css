@@ -1,0 +1,43 @@
+form div.item{position:relative;margin-bottom:25px;}
+form div.item input, form div.item textarea{padding:5px;font-size:120%;width:275px;color:#222;border-radius:3px;border:1px solid #ddd}
+form div.item textarea{width:600px;height:200px;}
+
+form label {display:block;color:#666;}
+form div.item.check label{display:inline;}
+form div.item.check input{width:20px;}
+form .error{color:#C11;position:absolute;left:0;top:48px;}
+form .textarea .error{top:230px;}
+div.links {bottom:10px;right:10px;position:absolute;}
+div.link a {display: inline-block;margin-left:15px;padding:4px;text-shadow:1px 1px 1px #fff;}
+.tip{color:#aaa;margin-left:10px;}
+
+.button {border: 1px solid #0064cd;border-radius:4px;color: #fff;font-size:100%;cursor:pointer;padding: 10px 15px;text-shadow:1px 1px 1px #444;display: inline-block;font-weight:bold;
+  background: #049cdb;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd');
+  background: -webkit-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background: -moz-linear-gradient(top, #049cdb, #0064cd);
+}
+.button:hover{background: #0064cd;text-decoration:none;}
+.charCounter{font-size:75%;color:#666;margin-left:475px;}
+
+.button.cancel{border-color:#BF7C30;
+  background:#FF8700;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF8700', endColorstr='#BF7C30');
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF8700), to(#BF7C30));
+  background: -moz-linear-gradient(top, #FF8700, #BF7C30);
+}
+.button.cancel:hover {background: #BF7C30;}
+.button.pick{text-align:center;width:20px;height:20px;position:relative;top:-2px;padding:4px;}
+.button.pick:after{content: "\279c";}
+
+form .dual{overflow:visible;}
+form .dual .item:first-child{float:left;}
+form .dual .item:last-child{margin-left:325px;}
+
+form .triplet{overflow:visible;}
+form .triplet .item{float:left;margin-right:25px;}
+form .triplet div.item input{width:175px;}
+
+body.narrow form > div {padding:5px 30px;}
+body.narrow div.buttons {position:relative;background:#eee;padding:15px 30px;border-top:1px solid #bbb;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+body.narrow form .error{left:35px;top:53px;}

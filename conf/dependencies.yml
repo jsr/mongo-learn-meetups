@@ -1,0 +1,6 @@
+# Application dependencies
+
+require:
+  - play
+  - play -> greenscript 1.2.6g
+  - play -> morphia 1.2.3beta1

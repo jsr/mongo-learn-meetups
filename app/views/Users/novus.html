@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'Register' /}
+#{set body: ' class=narrow' /}
+
+<h3>Create a new account</h3>
+<form method="post" action="/users">
+  #{form_field id:'name', type:'text', prefix:'user', tip: '1-20 characters' /}
+  #{form_field id:'password', type:'password', prefix:'user', tip: '8+ characters' /}
+  <div class="buttons">
+    <input type="submit" value="register" class="button" />
+    <div class="links">
+      <a href="@{Sessions.novus()}">login &raquo;</a>
+    </div>
+  </div>
+</form>
