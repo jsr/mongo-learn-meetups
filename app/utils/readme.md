@@ -5,6 +5,9 @@ These classes will be used throughout our code as we move forward.
 ### BCrypt
 We'll use [BCrypt](http://en.wikipedia.org/wiki/Bcrypt) to hash a user's password
 
+## DuplicateKeyException
+Used whenever we want to raise a duplicate key exception. Having our own exception is cleaner, in my opinion, than having the Mongo exception exposed everywhere.
+
 ### ExactSizeList + ExactSizeListCheck
 Validation annotation and logic to ensure that a list is of an exact size/length.
 
