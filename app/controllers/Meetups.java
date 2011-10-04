@@ -23,13 +23,16 @@ public class Meetups extends BaseController {
   }
 
   public static void edit(ObjectId id) {
-    //todo load the meetup
+    renderArgs.put("meetup", loadMeetupAsCreator(id));
     render();
   }
 
   public static void save(Meetup meetup) {
-    //getUser is defined in the BaseController
-    meetup.user = (ObjectId)getUser().getId();
+    if (meetup.getId() == null) {
+      meetup.user = (ObjectId)getUser().getId();
+    } else {
+      loadMeetupAsCreator((ObjectId)meetup.getId());
+    }
     if(meetup.validateAndSave()) {
       redirect("/meetups/view/" + meetup.getId());
     }
@@ -39,9 +42,23 @@ public class Meetups extends BaseController {
     validationError(new FieldError(validation.errors()));
     renderTemplate("Meetups/edit.html");
   }
+  
+  @Util
+  private static Meetup loadMeetupAsCreator(ObjectId id) {
+    Meetup meetup = Meetup.findById(id);
+    if (meetup == null || !meetup.user.equals(getUser().getId())) {
+      redirect("/");
+    }
+    return meetup;
+  }
 
   public static void view(ObjectId id) {
-    //todo load the meetup
+    Meetup meetup = Meetup.findById(id);
+    if (meetup == null) {
+      redirect("/");
+    }
+    renderArgs.put("meetup", meetup);
+    render();
   }
 
   public static void find() {
