@@ -14,9 +14,7 @@
   <input type="hidden" name="meetup.coordinates" id="coordy" value="" />
   <div class="dual">
     #{form_field id:'name', type:'text', prefix:'meetup', maxlength:50, value:meetup.name /}
-    #{form_field id:'tags', type:'text', prefix:'meetup', value:meetup.tags == null ? "" : meetup.tags.join(", "), extra: 'comma delimited'}
-    <a href="#" class="button pick" id="pickTags"></a>
-    #{/form_field}
+    #{form_field id:'tags', type:'text', prefix:'meetup', value:meetup.tags == null ? "" : meetup.tags.join(", "), extra: 'comma delimited' /}
   </div>
   <div class="dual">
     #{form_field id:'city', type:'text', prefix:'meetup', maxlength:25, value:meetup.city /}
