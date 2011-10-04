@@ -12,6 +12,7 @@
       <div id="menu">
         <span id="logo"><a href="@{Home.index()}">HackerMeetups</a></span>
         #{ if session.contains("uid") }
+          <a href="@{Meetups.novus()}">create meetup</a>
           <a href="@{Sessions.logout()}">logout</a>
         #{/if}
         #{else}
