@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 
 public class Meetups extends BaseController {
 
-  @Before(unless={"view", "find", "recent"})
+  @Before(unless={"view", "findUpcoming", "findRecent", "find"})
   private static void before() {
     User user =  (User)User.findById(session.get("uid"));
     if (user == null) {
@@ -42,15 +42,6 @@ public class Meetups extends BaseController {
     validationError(new FieldError(validation.errors()));
     renderTemplate("Meetups/edit.html");
   }
-  
-  @Util
-  private static Meetup loadMeetupAsCreator(ObjectId id) {
-    Meetup meetup = Meetup.findById(id);
-    if (meetup == null || !meetup.user.equals(getUser().getId())) {
-      redirect("/");
-    }
-    return meetup;
-  }
 
   public static void view(ObjectId id) {
     Meetup meetup = Meetup.findById(id);
@@ -61,11 +52,24 @@ public class Meetups extends BaseController {
     render();
   }
 
-  public static void find() {
+  public static void findUpcoming() {
     renderText("this is for later");
   }
 
-  public static void recent(int page) {
+  public static void findRecent() {
     renderText("this is for later");
+  }
+
+  public static void find() {
+    renderText("this is for later");
+  }
+  
+  @Util
+  private static Meetup loadMeetupAsCreator(ObjectId id) {
+    Meetup meetup = Meetup.findById(id);
+    if (meetup == null || !meetup.user.equals(getUser().getId())) {
+      redirect("/");
+    }
+    return meetup;
   }
 }
