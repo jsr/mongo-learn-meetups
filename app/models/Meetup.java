@@ -46,4 +46,12 @@ public class Meetup extends Model {
     List<Meetup> meetups = query.asList();
     return new PagedResult<Meetup>(query.countAll(), page, limit, meetups); 
   }
+  
+  @Override 
+  public Meetup save() {
+    Boolean isNew = this.getId() == null;
+    super.save();
+    if (isNew) { new Recent((ObjectId)this.getId()).save(); }
+    return this;
+  }
 }

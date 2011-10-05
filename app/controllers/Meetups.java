@@ -56,8 +56,8 @@ public class Meetups extends BaseController {
     renderJSON(Meetup.findUpcoming(page));
   }
 
-  public static void findRecent() {
-    renderText("this is for later");
+  public static void findRecent(int page) {
+    renderJSON(Recent.find(page));
   }
 
   public static void find() {
