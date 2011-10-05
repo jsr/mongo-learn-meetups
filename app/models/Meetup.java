@@ -18,7 +18,7 @@ public class Meetup extends Model {
   @Required @MaxSize(75)
   public String address;
 
-  @Required
+  @Required @Indexed
   public Date date;
 
   @MaxSize(100)
@@ -42,7 +42,7 @@ public class Meetup extends Model {
   public static PagedResult findUpcoming(int page) {
     int limit = 5;
     int offset = (page - 1) * limit;
-    MorphiaQuery query = filter("date >=", new Date()).limit(limit).offset(offset);
+    MorphiaQuery query = filter("date >=", new Date()).order("date").limit(limit).offset(offset);
     List<Meetup> meetups = query.asList();
     return new PagedResult<Meetup>(query.countAll(), page, limit, meetups); 
   }
