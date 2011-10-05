@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $('#upcoming ul').dynamicTable({go: '/meetups/view/:id', template: '#meetups-item-template', url: '/meetups/find?search.page=:page'});
-  $('#recent ul').dynamicTable({go: '/meetups/view/:id', template: '#meetups-item-template', url: '/meetups/recent?page=:page'});
+  $('#upcoming ul').dynamicTable({go: '/meetups/view/:id', template: '#meetups-item-template', url: '/meetups/findUpcoming?page=:page'});
+  $('#recent ul').dynamicTable({go: '/meetups/view/:id', template: '#meetups-item-template', url: '/meetups/findRecent?page=:page'});
 
   $('#tagFilterPicker a').click(pickTags);
   var $tagChoice =  $('#tagChoice');
@@ -33,7 +33,7 @@ $(document).ready(function() {
   
   function loadMapMeetups() {
     var center = map.getCenter();
-    $.get('/meetups/find', {'search.x': center.lng(), 'search.y': center.lat(), 'search.tags': tags}, gotMapMeetups, 'json');
+    $.get('/meetups/find', {'x': center.lng(), 'y': center.lat(), 'tags': tags}, gotMapMeetups, 'json');
   }
   
   function gotMapMeetups(r) {

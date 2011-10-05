@@ -38,4 +38,12 @@ public class Meetup extends Model {
 
   @MaxListSize(value=5, message="Can't have more than 5") @MaxListItemSize(value=15, message="A tag should be less than 15 characters")
   public Set<String> tags;
+  
+  public static PagedResult findUpcoming(int page) {
+    int limit = 5;
+    int offset = (page - 1) * limit;
+    MorphiaQuery query = filter("date >=", new Date()).limit(limit).offset(offset);
+    List<Meetup> meetups = query.asList();
+    return new PagedResult<Meetup>(query.countAll(), page, limit, meetups); 
+  }
 }
