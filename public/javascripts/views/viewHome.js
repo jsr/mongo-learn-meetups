@@ -36,9 +36,8 @@ $(document).ready(function() {
     $.get('/meetups/find', {'x': center.lng(), 'y': center.lat(), 'tags': tags}, gotMapMeetups, 'json');
   }
   
-  function gotMapMeetups(r) {
+  function gotMapMeetups(meetups) {
     clearExistingMarkers();
-    var meetups = r.models;
     for(var i = 0; i < meetups.length; ++i) {
       var meetup = meetups[i];
       var point = new google.maps.LatLng(meetup.coordinates[1], meetup.coordinates[0])
