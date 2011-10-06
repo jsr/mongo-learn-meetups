@@ -29,7 +29,7 @@ public class Meetups extends BaseController {
 
   public static void save(Meetup meetup) {
     if (meetup.getId() == null) {
-      meetup.user = (ObjectId)getUser().getId();
+      meetup.user = (String)getUser().getId();
     } else {
       loadMeetupAsCreator((ObjectId)meetup.getId());
     }

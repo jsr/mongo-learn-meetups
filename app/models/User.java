@@ -2,13 +2,17 @@ package models;
 
 import utils.*;
 import play.data.validation.*;
+import com.google.code.morphia.*;
 import play.modules.morphia.Model;
 import com.google.code.morphia.annotations.*;
 import com.mongodb.MongoException.DuplicateKey;
 
 @Entity(value="users", noClassnameStored=true)
 public class User extends Model {  
-  @Required @MaxSize(20) @Indexed(unique=true)
+  @Id
+  public String _id;
+    
+  @Required @MaxSize(20)
   public String name;
   
   @Required @MinSize(8)
@@ -17,15 +21,17 @@ public class User extends Model {
   public static User loadFromCredentials(String name, String password) {
     if (name == null || password == null) { return null; }
 
-    User user = filter("name = ", name).first();
+    User user = findById(name.toLowerCase());
     return user == null || !BCrypt.checkpw(password, user.password) ? null : user;
   }
   
   @Override
   public User save() {
     try {
+      _id = name.toLowerCase();
       password = BCrypt.hashpw(password, BCrypt.gensalt());
-      return super.save();
+      ((AdvancedDatastore)ds()).insert(this); 
+      return this;
     } catch(DuplicateKey e) {
       throw new DuplicateKeyException(e);
     }

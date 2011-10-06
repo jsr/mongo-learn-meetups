@@ -31,7 +31,7 @@ public class Meetup extends Model {
   public String description;
 
   @Required
-  public ObjectId user;
+  public String user;
   
   @Required @ExactListSize(value=2, message="Should have 2 values")
   public List<Float> coordinates;
