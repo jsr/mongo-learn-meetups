@@ -2,6 +2,7 @@ package controllers;
 
 import utils.*; 
 import models.*;
+import java.util.*;
 import play.mvc.Util;
 import play.mvc.Before;
 import org.bson.types.ObjectId;
@@ -60,8 +61,8 @@ public class Meetups extends BaseController {
     renderJSON(Recent.find(page));
   }
 
-  public static void find(float x, float y) {
-    renderJSON(Meetup.find(x, y));
+  public static void find(float x, float y, Set<String> tags) {
+    renderJSON(Meetup.find(x, y, tags));
   }
   
   @Util

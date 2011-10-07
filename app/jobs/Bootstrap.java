@@ -8,7 +8,7 @@ import play.modules.morphia.MorphiaPlugin;
 public class Bootstrap extends Job {  
   public void doJob() {
     MorphiaPlugin.ds().ensureCaps();
-    DBObject object = BasicDBObjectBuilder.start().add("coordinates", "2d").add("date", 1).get();
+    DBObject object = BasicDBObjectBuilder.start().add("coordinates", "2d").add("date", 1).add("tags", 1).get();
     MorphiaPlugin.ds().getCollection(models.Meetup.class).ensureIndex(object);
   }
 }

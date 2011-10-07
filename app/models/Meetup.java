@@ -40,8 +40,11 @@ public class Meetup extends Model {
   @MaxListSize(value=5, message="Can't have more than 5") @MaxListItemSize(value=15, message="A tag should be less than 15 characters")
   public Set<String> tags;
   
-  public static List<Meetup> find(float x, float y) {
+  public static List<Meetup> find(float x, float y, Set<String> tags) {
     Query<Meetup> query = ds().createQuery(Meetup.class).field("coordinates").near(x, y).field("date").greaterThanOrEq(new Date()).limit(200);
+    if (tags != null && !tags.isEmpty()) {
+      query.field("tags").in(tags);
+    }
     return query.asList();
   }
 

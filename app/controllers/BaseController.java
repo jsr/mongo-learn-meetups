@@ -18,6 +18,13 @@ public class BaseController extends Controller {
     gsonBuilder.registerTypeAdapter(PagedResult.class, new PagedResultGsonAdapter());
   }
   
+  @Before
+  //load the user for the view
+  private static void loadUser() {
+    if (session.get("uid") == null) { return; }
+    renderArgs.put("user", User.findById(session.get("uid")));
+  }
+  
   @Util
   protected static void signin(User user) {
     session.put("uid", user.getId());
