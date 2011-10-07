@@ -1,4 +1,4 @@
-# About
+# The MongoDB Meetups Learning Application
 The meetups project is a sample application built in Java using the [Play Framework](http://www.playframework.org/) backed by [MongoDB](http://mongodb.org/). The app is meant to allow people to post and find upcoming meetups (or *events*, if you prefer).
 
 The idea is to help people learn or familiarize themselves with MongoDB. 
