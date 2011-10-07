@@ -60,8 +60,8 @@ public class Meetups extends BaseController {
     renderJSON(Recent.find(page));
   }
 
-  public static void find() {
-    renderText("this is for later");
+  public static void find(float x, float y) {
+    renderJSON(Meetup.find(x, y));
   }
   
   @Util

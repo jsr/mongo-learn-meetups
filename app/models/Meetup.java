@@ -5,6 +5,7 @@ import java.util.*;
 import play.data.validation.*;
 import org.bson.types.ObjectId;
 import play.modules.morphia.Model;
+import com.google.code.morphia.query.Query;
 import com.google.code.morphia.annotations.*;
 
 @Entity(value="meetups", noClassnameStored=true)
@@ -31,7 +32,7 @@ public class Meetup extends Model {
   public String description;
 
   @Required
-  public ObjectId user;
+  public String user;
   
   @Required @ExactListSize(value=2, message="Should have 2 values")
   public List<Float> coordinates;
@@ -39,6 +40,11 @@ public class Meetup extends Model {
   @MaxListSize(value=5, message="Can't have more than 5") @MaxListItemSize(value=15, message="A tag should be less than 15 characters")
   public Set<String> tags;
   
+  public static List<Meetup> find(float x, float y) {
+	  Query<Meetup> query = ds().createQuery(Meetup.class).field("coordinates").near(x, y).field("date").greaterThanOrEq(new Date()).limit(200);
+	  return query.asList();
+  }
+
   public static PagedResult findUpcoming(int page) {
     int limit = 5;
     int offset = (page - 1) * limit;
