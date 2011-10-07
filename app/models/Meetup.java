@@ -41,8 +41,8 @@ public class Meetup extends Model {
   public Set<String> tags;
   
   public static List<Meetup> find(float x, float y) {
-	  Query<Meetup> query = ds().createQuery(Meetup.class).field("coordinates").near(x, y).field("date").greaterThanOrEq(new Date()).limit(200);
-	  return query.asList();
+    Query<Meetup> query = ds().createQuery(Meetup.class).field("coordinates").near(x, y).field("date").greaterThanOrEq(new Date()).limit(200);
+    return query.asList();
   }
 
   public static PagedResult findUpcoming(int page) {
