@@ -2,5 +2,5 @@
 
 require:
   - play
-  - play -> greenscript 1.2.6g
+  - play -> greenscript 1.2.6j
   - play -> morphia 1.2.3beta1
