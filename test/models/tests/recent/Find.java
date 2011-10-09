@@ -19,7 +19,7 @@ public class Find extends ModelFixture {
   public void returnsTheMostRecentMeetups() {
     Helper.load("meetup-set1");
     PagedResult<Meetup> result = Recent.find(1);
-    assertEquals(7, result.total);
+    assertEquals(8, result.total);
     assertEquals(5, result.models.size());
     assertEquals("Annual Bullfight", result.models.get(0).name);
     assertEquals("AI Synopsis", result.models.get(4 ).name);
@@ -29,7 +29,7 @@ public class Find extends ModelFixture {
   public void returnsPagedResults() {
     Helper.load("meetup-set1");
     PagedResult<Meetup> result = Recent.find(2);
-    assertEquals(7, result.total);
-    assertEquals(2, result.models.size());
+    assertEquals(8, result.total);
+    assertEquals(3, result.models.size());
   }
 }

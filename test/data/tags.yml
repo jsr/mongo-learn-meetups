@@ -1,0 +1,11 @@
+Tag(NoSQL):
+  _id: NoSQL
+  value: 10
+  
+Tag(MongoDB):
+  _id: MongoDB
+  value: 15
+
+Tag(Pie):
+  _id: Pie
+  value: 100
