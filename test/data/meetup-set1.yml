@@ -1,0 +1,116 @@
+Meetup(zero):
+  name: Annual Bullfight
+  city: Caladan
+  address: The arena
+  date: 2011-08-05 15:00:00
+  duration: 4
+  description: I hope nothing bad happens to me!
+  user: Paulus
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - dune
+    - dance
+    - food
+    
+Meetup(one):
+  name: Spice Teasers
+  city: Arrakis
+  address: Space Port 1
+  date: 2015-08-01 08:00:01
+  duration: 2
+  description: No Harkonnens
+  user: Gurney
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - spice
+    - dune
+Meetup(two):
+  name: Dragon Ball Treasure Hunt
+  city: Namek
+  address: 3 Guru Way
+  date: 2015-08-03 10:00:00
+  duration: 2
+  description: Find the balls, make a wish
+  user: Nail
+  coordinates:
+    - 0
+    - 0
+  tags: 
+    - food
+    - fun
+Meetup(three):
+  name: AI Synopsis
+  city: Salusa Secundus
+  address: Shigawire Valley
+  date: 2015-08-01 13:00:00
+  duration: 6
+  description: "Please don't tell anyone what we are doing"
+  user: CHF
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - secret
+    - food
+Meetup(four):
+  name: Dance Party
+  city: Ponyville
+  address: 102 Ponyville Road
+  date: 2015-08-04 14:30
+  duration: 4
+  description: Under no circumstances will vampires be allowed in
+  user: Pegasus
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - unicorns
+    - dance
+    - food
+Meetup(five):
+  name: BBQ Ribs and Sayans
+  city: Heaven
+  address: 1 Tournament Way
+  date: 2015-09-01 10:00:00
+  duration: 8
+  description: "You bring your appetite, we'll bring the sauce"
+  user: Goku
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - food
+Meetup(six):
+  name: Spice Agony
+  city: Arrakis
+  address: Sietch Tabr
+  date: 2015-08-02 14:00:00
+  duration: 6
+  description: Oh ya!
+  user: jessica
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - spice
+    - dune
+    - agony
+Meetup(seven):
+  name: Annual Bullfight
+  city: Caladan
+  address: The arena
+  date: 2015-08-05 15:00:00
+  duration: 4
+  description: I hope nothing bad happens to me!
+  user: Paulus
+  coordinates:
+    - 0
+    - 0
+  tags:
+    - dune
+    - dance
+    - food
